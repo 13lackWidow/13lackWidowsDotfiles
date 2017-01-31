@@ -1,0 +1,335 @@
+#########################################################################
+#              ###}-----131@ckVV1d0W's i3 Config-----{###               #
+#              ##>>---Compiled from many resources---<<##               #
+#dotfiles: https://github.com/13lackWidow/13lackWidowsDotfiles :seliftod#
+
+
+#+------+
+#|Colors|
+#+------+
+set $black      #002B36
+set $white      #839496
+set $gray       #CCCCCC
+set $darkgray   #666666
+set $limegreen  #00ff00
+set $green      #799F26
+set $blue       #4D73AA
+set $purple     #8473A7
+set $red        #B58900
+set $orange     #E59847
+set $cyan       #00FFF7
+set $cyandark   #003C3A
+set $dark       #00252E
+
+set $bg-color            #1A1A1A
+set $inactive-bg-color   #1A1A1A
+
+set $text-color          #00FFF7
+set $inactive-text-color #003C3A
+set $urgent-bg-color     #E53935
+
+#+---------+
+#|Variables|
+#+---------+
+# Principal mod key (Super = Win key)
+# mod1 = Alt (xmodmap to show)
+# mod4 = Winkey (xmodmap to show)
+set $mod Mod4
+
+#Default Programs/Directories
+set $term termite
+set $code atom
+set $browser firefox
+set $files thunar
+set $papedir /usr/share/wallpapers/absclouds.jpg
+set $font Terminus 9, FontAwesome 12
+
+#The directory in which your i3 config is
+set $dir /root/.config/i3
+
+#Back and Forth
+workspace_auto_back_and_forth yes
+
+#+----------+
+#|Aesthetics|
+#+----------+
+new_window pixel 1
+new_float pixel 1
+focus_follows_mouse  yes
+
+#Window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          $cyan
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $cyan
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $cyan
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $cyan
+client.placeholder      $bg-color           $bg-color          $text-color          $cyan
+
+#Window Font
+font pango:$font
+
+#+----+
+#|Gaps|
+#+----+
+#gaps small
+#gaps inner 8
+#gaps outer 2
+
+#gaps big
+gaps inner 25
+gaps outer 2
+
+#smart_gaps on
+#smart_borders on
+
+bindsym $mod+z gaps inner current minus 5
+bindsym $mod+u gaps inner current plus 5
+bindsym $mod+Shift+z gaps outer current minus 5
+bindsym $mod+Shift+u gaps outer current plus 5
+
+#+------------+
+#|Applications|
+#+------------+
+set editor $code
+
+#Mouse+Mod to resize windows
+floating_modifier $mod
+
+#Handle Popups
+popup_during_fullscreen smart
+
+#Screenshot
+bindsym Print exec $HOME/bin/screen root
+bindsym Mod1+Print exec $HOME/bin/screen active
+
+#Move to Workspace
+assign [class="Firefox"] $ws6
+assign [class="Atom"] $ws10
+assign [class="Terminology"] $ws1
+assign [class="Corebird"] $ws7
+
+#Floating windows (default)
+for_window [window_role="pop-up"] floating enable,move absolute center
+for_window [class="Corebird"] floating enable
+for_window [class="File-roller"] floating enable,move absolute center
+
+#Floating windows ($mod+SHIFT+keybind)
+for_window [class="FLOATterm"] floating enable
+for_window [class="FLOATfm"] floating enable
+
+#+---------------+
+#|Custom Keybinds|
+#+---------------+
+#Lock the screen
+bindsym $mod+l exec $dir/i3lock-extra.sh
+
+#Open Terminal
+bindsym $mod+Return exec $term
+
+#Open floating Terminal
+bindsym $mod+SHIFT+Return exec $term --class FLOATterm
+
+#Open File Manager
+#bindsym $MOD+SHIFT+f exec $files
+
+#File Manager floating by default
+bindsym $MOD+SHIFT+f exec $files --class FLOATfm
+
+#+-----------+
+#|i3 Keybinds|
+#+-----------+
+#i3blocks Key Indicators
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+
+#Kill focused window
+bindsym $mod+Shift+q kill
+
+#Change Focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+#Move Window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+#Split Horizontal Window
+bindsym $mod+h split h
+
+#Split Vertical Window
+bindsym $mod+v split v
+
+#FullScreen on focused Window
+bindsym $mod+f fullscreen toggle
+
+#Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+#Toggle tiling / floating
+bindsym $mod+space floating toggle
+
+#Reload Config file
+bindsym $mod+Shift+c reload
+
+#Restart i3
+bindsym $mod+Shift+r restart
+
+#Exit i3
+bindsym $mod+Shift+e exit
+
+#Resize window
+mode "resize" {
+        #These bindings trigger as soon as you enter the resize mode
+
+        #Pressing left will shrink the window’s width.
+        #Pressing right will grow the window’s width.
+        #Pressing up will shrink the window’s height.
+        #Pressing down will grow the window’s height.
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        #Back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#+----------+
+#|Workspaces|
+#+----------+
+#Workspace Variables
+set $ws1 "1: TERM"
+set $ws2 "2: REC"
+set $ws3 "3: HAX"
+set $ws4 "4: SYS"
+set $ws5 "5: MUSIC"
+set $ws6 "6: WEB"
+set $ws7 "7: MON"
+set $ws8 "8: IRC"
+set $ws9 "9: SSH"
+set $ws10 "10: CODE"
+
+#Workspace Default Monitor
+workspace $ws1 output HDMI-1
+workspace $ws2 output HDMI-1
+workspace $ws3 output HDMI-1
+workspace $ws4 output HDMI-1
+workspace $ws5 output HDMI-1
+workspace $ws6 output VGA-1
+workspace $ws7 output VGA-1
+workspace $ws8 output VGA-1
+workspace $ws9 output VGA-1
+workspace $ws10 output VGA-1
+
+#Switch Workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+
+#Move focused container to Workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+#+------+
+#|i3 Bar|
+#+------+
+#hide_edge_borders both
+# start dmenu/rofi (a program launcher)
+#bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu  -nb '#003C3A' -sb '#00FFF7' -sf '#000000' -fn 'Terminus 11' -l 10"
+#bindsym $mod+d exec "rofi -combi-modi window,drun,run -show combi -modi combi -lines 10 -width 50 -padding 100"
+
+
+bar {
+      position top
+      font pango:Terminus 10, FontAwesome 9
+      status_command i3blocks -c /root/.config/i3/i3blocks.conf
+      tray_output none
+      output HDMI-1
+      strip_workspace_numbers yes
+
+      colors {
+                background $bg-color
+                separator  #040404
+                statusline #003C3A
+
+                #                  border             background         text
+                focused_workspace  $bg-color          $bg-color          $text-color
+                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        }
+}
+
+bar {
+      position top
+      font pango:Terminus 10, FontAwesome 9
+      status_command i3blocks -c /root/.config/i3/i3blocks2.conf
+      tray_output none
+      output VGA-1
+      strip_workspace_numbers yes
+
+      colors {
+                background $bg-color
+                separator  #040404
+                statusline #003C3A
+
+                #                  border             background         text
+                focused_workspace  $bg-color          $bg-color          $text-color
+                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        }
+}
+
+#+--------------+
+#|FN Key Buttons|
+#+--------------+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+#+-------+
+#|Startup|
+#+-------+
+exec_always --no-startup-id feh --bg-fill $papedir
+exec --no-startup-id xrandr --output VGA-1 --mode 1024x768 --pos 1366x0 --rotate normal --output DVI-I-1 --off --output HDMI-1 --primary --mode 1366x768 --pos 0x0 --rotate normal
+exec --no-startup-id termite
+exec --no-startup-id compton -f
+exec --no-startup-id atom
+exec --no-startup-id firefox
+exec --no-startup-id corebird
