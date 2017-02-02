@@ -112,6 +112,7 @@ assign [class="Corebird"] $ws7
 for_window [window_role="pop-up"] floating enable,move absolute center
 for_window [class="Corebird"] floating enable
 for_window [class="File-roller"] floating enable,move absolute center
+for_window [class="Wicd-client.py"] floating enable, move absolute center
 
 #Floating windows ($mod+SHIFT+keybind)
 for_window [class="FLOATterm"] floating enable
@@ -129,8 +130,8 @@ bindsym $mod+Return exec $term
 #Open floating Terminal
 bindsym $mod+SHIFT+Return exec $term --class FLOATterm
 
-#Open File Manager
-#bindsym $MOD+SHIFT+f exec $files
+#Network Manager (W for WiFI lmao)
+bindsym $mod+SHIFT+w exec wicd-gtk
 
 #File Manager floating by default
 bindsym $MOD+SHIFT+f exec $files --class FLOATfm
@@ -333,4 +334,4 @@ exec --no-startup-id compton -f
 exec --no-startup-id atom
 exec --no-startup-id firefox
 exec --no-startup-id corebird
-exec --no-startup-id nm-applet
+exec --no-startup-id wicd
