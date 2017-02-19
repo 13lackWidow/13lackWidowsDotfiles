@@ -3,7 +3,6 @@
 #              ##>>---Compiled from many resources---<<##               #
 #dotfiles: https://github.com/13lackWidow/13lackWidowsDotfiles :seliftod#
 
-
 #+------+
 #|Colors|
 #+------+
@@ -107,12 +106,16 @@ assign [class="Firefox"] $ws6
 assign [class="Atom"] $ws10
 assign [class="Terminology"] $ws1
 assign [class="Corebird"] $ws7
+assign [class="armitage-ArmitageMain"] $ws3
 
 #Floating windows (default)
 for_window [window_role="pop-up"] floating enable,move absolute center
 for_window [class="Corebird"] floating enable
 for_window [class="File-roller"] floating enable,move absolute center
 for_window [class="Wicd-client.py"] floating enable, move absolute center
+for_window [class="armitage-ArmitageMain"] floating enable, move absolute center
+for_window [class="k3b"] floating enable, move absolute center
+for_window [class="x-terminal-emulator"] floating enable, move absolute center
 
 #Floating windows ($mod+SHIFT+keybind)
 for_window [class="FLOATterm"] floating enable
@@ -335,3 +338,4 @@ exec --no-startup-id atom
 exec --no-startup-id firefox
 exec --no-startup-id corebird
 exec --no-startup-id wicd
+exec --no-startup-id xfce4-panel -d
