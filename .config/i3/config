@@ -1,4 +1,4 @@
-##########################FOR USE WITH i3 GAPS###########################
+#########################################################################
 #              ###}-----131@ckVV1d0W's i3 Config-----{###               #
 #              ##>>---Compiled from many resources---<<##               #
 #dotfiles: https://github.com/13lackWidow/13lackWidowsDotfiles :seliftod#
@@ -102,24 +102,99 @@ bindsym Print exec $HOME/bin/screen root
 bindsym Mod1+Print exec $HOME/bin/screen active
 
 #Move to Workspace
-assign [class="Firefox"] $ws6
+assign [class="FirefoxD"] $ws6
 assign [class="Atom"] $ws10
 assign [class="Terminology"] $ws1
 assign [class="Corebird"] $ws7
-assign [class="armitage-ArmitageMain"] $ws3
 
 #Floating windows (default)
 for_window [window_role="pop-up"] floating enable,move absolute center
 for_window [class="Corebird"] floating enable
 for_window [class="File-roller"] floating enable,move absolute center
 for_window [class="Wicd-client.py"] floating enable, move absolute center
-for_window [class="armitage-ArmitageMain"] floating enable, move absolute center
 for_window [class="k3b"] floating enable, move absolute center
 for_window [class="x-terminal-emulator"] floating enable, move absolute center
 
 #Floating windows ($mod+SHIFT+keybind)
 for_window [class="FLOATterm"] floating enable
 for_window [class="FLOATfm"] floating enable
+
+#+--------------+
+#|H@x0r1ng T00lz|
+#+--------------+
+#Delete this section if you don't need it.
+#I put it here so non-1337 people can
+#find and remove them if need be.
+#Yes, I realise there are duplicates...It's for organization.
+
+#Move to Workspace
+    #General Exploitation
+assign [class="armitage-ArmitageMain"] $ws3
+    #General Recon
+assign [class="Zenmap"] $ws2
+assign [class="Maltego CaseFile"] $ws2
+assign [class="Maltego Kali Linux"] $ws2
+assign [class="Sparta.py"] $ws2
+    #Web App
+assign [class="burp-StartBurpy"] $ws2
+assign [class="org-parosproxy-paros-Paros"] $ws2
+assign [class="Proxystrike"] $ws2
+assign [class="Uniscan_gui"] $ws2
+assign [class="com-sittinglittleduck-DirBuster-Start"] $ws2
+assign [class="com-jsql-MainApplication"] $ws2
+assign [class="Powerfuzzer"] $ws2
+assign [class="OWASP ZAP"] $ws2
+assign [class="Subgraph Vega"] $ws2
+assign [class="W3af_gui"] $ws2
+assign [class="com-simontuffs-onejar-Boot"] $ws2
+    #Database
+assign [class="Execute.py"] $ws2
+#assign [class="com-jsql-MainApplication"] $ws2
+assign [class="sqldict.exe"] $ws2
+assign [class="sqlitebrowser"] $ws2
+    #PasswordAtt
+assign [class="Johnny"] $ws3
+assign [class="Xhydra"] $ws3
+    #WirelessAtt
+#assign [class="Xhydra"] $ws3
+#assign [class="Xhydra"] $ws3
+
+#------------------------------------------------------------------------------#
+
+#Floating windows (default)
+    # General Exploitation
+for_window [class="armitage-ArmitageMain"] floating enable, move absolute center
+    #General Recon
+for_window [class="Zenmap"] floating enable, move absolute center
+for_window [class="Maltego CaseFile"] floating enable, move absolute center
+for_window [class="Maltego Kali Linux"] floating enable, move absolute center
+for_window [class="Sparta.py"] floating enable, move absolute center
+    #Web App
+for_window [class="burp-StartBurp"] floating enable, move absolute center
+for_window [class="org-parosproxy-paros-Paros"] floating enable, move absolute center
+for_window [class="Proxystrike"] floating enable, move absolute center
+for_window [class="Uniscan_gui"] floating enable, move absolute center
+for_window [class="com-sittinglittleduck-DirBuster-Start"] floating enable, move absolute center
+for_window [class="com-jsql-MainApplication"] floating enable, move absolute center
+for_window [class="Powerfuzzer"] floating enable, move absolute center
+for_window [class="OWASP ZAP"] floating enable, move absolute center
+for_window [class="Subgraph Vega"] floating enable, move absolute center
+for_window [class="W3af_gui"] floating enable, move absolute center
+for_window [class="com-simontuffs-onejar-Boot"] floating enable, move absolute center
+    #Database
+for_window [class="Execute.py"] floating enable, move absolute center
+#for_window [class="com-jsql-MainApplication"] floating enable, move absolute center
+for_window [class="sqldict.exe"] floating enable, move absolute center
+for_window [class="sqlitebrowser"] floating enable, move absolute center
+    #PasswordAtt
+for_window [class="Johnny"] floating enable, move absolute center
+for_window [class="Xhydra"] floating enable, move absolute center
+    #WirelessAtt
+#for_window [class="Xhydra"] floating enable, move absolute center
+#for_window [class="Xhydra"] floating enable, move absolute center
+
+#|End of H@x0r1ng T00lz
+
 
 #+---------------+
 #|Custom Keybinds|
@@ -335,7 +410,7 @@ exec --no-startup-id xrandr --output VGA-1 --mode 1024x768 --pos 1366x0 --rotate
 exec --no-startup-id termite
 exec --no-startup-id compton -f
 exec --no-startup-id atom
-exec --no-startup-id firefox
+exec --no-startup-id firefox --class FirefoxD
 exec --no-startup-id corebird
 exec --no-startup-id wicd
 exec --no-startup-id xfce4-panel -d
