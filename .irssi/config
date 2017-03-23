@@ -380,6 +380,6 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "root"; user_name = "root"; nick = "Blackwidow"; };
+  core = { real_name = "Blackwidow"; user_name = "Blackwidow"; nick = "Blackwidow"; };
   "fe-text" = { actlist_sort = "refnum"; };
 };
