@@ -55,10 +55,12 @@ alias grep='grep --color=auto'
 alias more='less'
 alias hist='history | less'
 alias openports='ss --all --numeric --processes --ipv4 --ipv6'
-alias 4cdl='sh ~/scripts/4cdl'
-alias 4trips='sh ~/scripts/4trips'
+alias 4cdl='~/scripts/4cdl'
+alias 4trips='~/scripts/4trips'
 alias music='mpd && ncmpcpp'
 alias mute='killall mpd'
+alias mux='tmuxinator'
+alias urlforen='~/MiscPrograms/urlforensics.sh'
 
 #Common Errors
 alias :q=' exit'
@@ -69,6 +71,7 @@ alias cd..='cd ..'
 alias vi='vim'
 alias vmi='vim'
 alias gedit='vim'
+alias nano='vim'
 alias intsal='install'
 
 #+--------+
@@ -120,3 +123,4 @@ source $HOME/.bash_aliases
 
 export NVM_DIR="/root/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export EDITOR='vim'
