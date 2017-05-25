@@ -414,3 +414,5 @@ exec --no-startup-id firefox --class FirefoxD
 exec --no-startup-id corebird
 exec --no-startup-id wicd
 exec --no-startup-id xfce4-panel -d
+exec --no-startup-id tor
+exec --no-startup-id killall -9 nexserv
