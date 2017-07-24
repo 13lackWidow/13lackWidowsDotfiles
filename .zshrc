@@ -1,10 +1,11 @@
 #+----+
 #|Vars|
 #+----+
+export home=home/purplesmarts
 export TERM="xterm-256color"
-export ZSH=/root/.oh-my-zsh
+export ZSH=root/.oh-my-zsh
 export EDITOR=vim
-MSF_DATABASE_CONFIG=/usr/share/metasploit-framework/config/database.yml
+#MSF_DATABASE_CONFIG=/usr/share/metasploit-framework/config/database.yml
 
 #+--------+
 #|HistSize|
@@ -55,12 +56,17 @@ alias grep='grep --color=auto'
 alias more='less'
 alias hist='history | less'
 alias openports='ss --all --numeric --processes --ipv4 --ipv6'
-alias 4cdl='~/scripts/4cdl'
-alias 4trips='~/scripts/4trips'
+alias 4cdl='$HOME/scripts/4cdl'
+alias 4trips='$HOME/scripts/4trips'
 alias music='mpd && ncmpcpp'
 alias mute='killall mpd'
+alias unmute='mpd'
 alias mux='tmuxinator'
-alias urlforen='~/MiscPrograms/urlforensics.sh'
+alias urlforen='$HOME/MiscPrograms/urlforensics.sh'
+alias aur='yaourt'
+alias AUR='yaourt'
+alias teamspeak='/home/purplesmarts/MiscPrograms/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
+alias Teamspeak='/home/purplesmarts/MiscPrograms/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
 
 #Common Errors
 alias :q=' exit'
@@ -73,6 +79,9 @@ alias vmi='vim'
 alias gedit='vim'
 alias nano='vim'
 alias intsal='install'
+alias pacman='sudo pacman'
+alias celar='clear'
+alias clea='clear'
 
 #+--------+
 #|Commands|
@@ -119,7 +128,7 @@ setopt interactivecomments
 setopt ignoreeof
 setopt correctall
 setopt globdots
-source $HOME/.bash_aliases
+#source $HOME/.bash_aliases
 
 export NVM_DIR="/root/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
