@@ -1,6 +1,8 @@
 [options]
 font = Anonymous Pro for Powerline 10
-cursor_shape = bar
+cursor_shape = ibeam
+allow_bold = true
+audible_bell = true
 
 [colors]
 # special
