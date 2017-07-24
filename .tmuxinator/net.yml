@@ -1,0 +1,11 @@
+name: net
+root: ~/
+
+startup_window: network
+
+windows:
+    - network:
+        layout: main-horizontal
+        panes:
+           - sudo iftop
+           - slurm -i enp3s0
