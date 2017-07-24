@@ -1,0 +1,11 @@
+name: sys
+root: ~/
+
+startup_window: system
+
+windows:
+  - system:
+      layout: main-horizontal
+      panes:
+        - htop
+        - glances
