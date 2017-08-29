@@ -63,10 +63,16 @@ alias mute='killall mpd'
 alias unmute='mpd'
 alias mux='tmuxinator'
 alias urlforen='$HOME/MiscPrograms/urlforensics.sh'
-alias aur='yaourt'
-alias AUR='yaourt'
 alias teamspeak='/home/purplesmarts/MiscPrograms/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
 alias Teamspeak='/home/purplesmarts/MiscPrograms/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
+
+#PackageManagement
+alias pacman='sudo pacman'
+alias aur='yaourt'
+alias AUR='yaourt'
+alias install='sudo pacman -S'
+alias uninstall='sudo pacman -R'
+alias remove='sudo pacman -R'
 
 #Common Errors
 alias :q=' exit'
@@ -79,9 +85,14 @@ alias vmi='vim'
 alias gedit='vim'
 alias nano='vim'
 alias intsal='install'
-alias pacman='sudo pacman'
 alias celar='clear'
 alias clea='clear'
+
+#Sudoing
+#alias gufw='sudo gufw'
+alias wicd='sudo wicd'
+alias udo='sudo'
+alias ssudo='sudo'
 
 #+--------+
 #|Commands|
