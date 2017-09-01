@@ -11,14 +11,18 @@ set $white      #839496
 set $gray       #CCCCCC
 set $darkgray   #666666
 set $limegreen  #00ff00
-set $green      #799F26
+set $green      #27CD12
 set $blue       #4D73AA
-set $purple     #8473A7
-set $red        #B58900
+set $lpurple    #8473A7
+set $dpurple    #602EC6
+set $red        #E10F0F
 set $orange     #E59847
 set $cyan       #00FFF7
+set $cyantwo    #48CDD4
 set $cyandark   #003C3A
 set $dark       #00252E
+set $pink       #BD14E9
+set $pink2      #BC46DB
 
 set $bg-color            #1A1A1A
 set $inactive-bg-color   #1A1A1A
@@ -40,11 +44,11 @@ set $term termite
 set $code atom
 set $browser firefox
 set $files thunar
-set $papedir /usr/share/wallpapers/absclouds.jpg
+set $papedir /home/purplesmarts/Pictures/Wallpapers/hinata_wallpaper.png
 set $font Terminus 9, FontAwesome 12
 
 #The directory in which your i3 config is
-set $dir /root/.config/i3
+set $dir /home/purplesmarts/.config/i3
 
 #Back and Forth
 workspace_auto_back_and_forth yes
@@ -82,9 +86,9 @@ gaps outer 2
 #smart_borders on
 
 bindsym $mod+z gaps inner current minus 5
-bindsym $mod+u gaps inner current plus 5
+bindsym $mod+x gaps inner current plus 5
 bindsym $mod+Shift+z gaps outer current minus 5
-bindsym $mod+Shift+u gaps outer current plus 5
+bindsym $mod+Shift+x gaps outer current plus 5
 
 #+------------+
 #|Applications|
@@ -98,14 +102,17 @@ floating_modifier $mod
 popup_during_fullscreen smart
 
 #Screenshot
-bindsym Print exec $HOME/bin/screen root
+bindsym Print exec $HOME/bin/screen /home/
 bindsym Mod1+Print exec $HOME/bin/screen active
 
 #Move to Workspace
-assign [class="FirefoxD"] $ws6
-assign [class="Atom"] $ws10
+#assign [class="FirefoxD"] $ws6
+assign [class="FirefoxD"] $ws7
+#assign [class="Atom"] $ws10
+assign [class="Atom"] $ws11
 assign [class="Terminology"] $ws1
-assign [class="Corebird"] $ws7
+#assign [class="Corebird"] $ws7
+assign [class="Corebird"] $ws8
 
 #Floating windows (default)
 for_window [window_role="pop-up"] floating enable,move absolute center
@@ -285,54 +292,106 @@ bindsym $mod+r mode "resize"
 #+----------+
 #|Workspaces|
 #+----------+
-#Workspace Variables
+#Workspace Vars for Dual
+#set $ws1 "1: TERM"
+#set $ws2 "2: REC"
+#set $ws3 "3: HAX"
+#set $ws4 "4: SYS"
+#set $ws5 "5: MUSIC"
+#set $ws6 "6: WEB"
+#set $ws7 "7: MON"
+#set $ws8 "8: IRC"
+#set $ws9 "9: SSH"
+#set $ws10 "10: CODE"
+
+#Workspace Vars for Tri
 set $ws1 "1: TERM"
 set $ws2 "2: REC"
 set $ws3 "3: HAX"
 set $ws4 "4: SYS"
-set $ws5 "5: MUSIC"
-set $ws6 "6: WEB"
-set $ws7 "7: MON"
-set $ws8 "8: IRC"
-set $ws9 "9: SSH"
-set $ws10 "10: CODE"
+set $ws5 "5: RAND"
+set $ws6 "6: MUSIC"
+set $ws7 "7: WEB"
+set $ws8 "8: MON"
+set $ws9 "9: IRC"
+set $ws10 "10: SSH"
+set $ws11 "11: CODE"
 
-#Workspace Default Monitor
-workspace $ws1 output HDMI-1
-workspace $ws2 output HDMI-1
-workspace $ws3 output HDMI-1
-workspace $ws4 output HDMI-1
-workspace $ws5 output HDMI-1
-workspace $ws6 output VGA-1
-workspace $ws7 output VGA-1
-workspace $ws8 output VGA-1
-workspace $ws9 output VGA-1
-workspace $ws10 output VGA-1
+#Workspace Dual Monitors
+# workspace $ws1 output HDMI-1
+# workspace $ws2 output HDMI-1
+# workspace $ws3 output HDMI-1
+# workspace $ws4 output HDMI-1
+# workspace $ws5 output HDMI-1
+# workspace $ws6 output VGA-1
+# workspace $ws7 output VGA-1
+# workspace $ws8 output VGA-1
+# workspace $ws9 output VGA-1
+# workspace $ws10 output VGA-1
 
-#Switch Workspace
+#Workspace Tri-Monitors
+workspace $ws1 output VGA-2
+workspace $ws2 output VGA-2
+workspace $ws3 output VGA-2
+workspace $ws4 output VGA-2
+workspace $ws5 output VGA-1-1
+workspace $ws6 output VGA-2
+workspace $ws7 output HDMI-2
+workspace $ws8 output HDMI-2
+workspace $ws9 output HDMI-2
+workspace $ws10 output HDMI-2
+workspace $ws11 output HDMI-2
+
+#Switch Workspace Dual Monitors
+#bindsym $mod+1 workspace $ws1
+#bindsym $mod+2 workspace $ws2
+#bindsym $mod+3 workspace $ws3
+#bindsym $mod+4 workspace $ws4
+#bindsym $mod+5 workspace $ws5
+#bindsym $mod+6 workspace $ws6
+#bindsym $mod+7 workspace $ws7
+#bindsym $mod+8 workspace $ws8
+#bindsym $mod+9 workspace $ws9
+#bindsym $mod+0 workspace $ws10
+
+#Switch Workspace Tri-Monitors
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+#bindsym $mod+5 workspace $ws5
+bindsym $mod+5 workspace $ws6
+bindsym $mod+6 workspace $ws7
+bindsym $mod+7 workspace $ws8
+bindsym $mod+8 workspace $ws9
+bindsym $mod+9 workspace $ws10
+bindsym $mod+0 workspace $ws11
 
 
 #Move focused container to Workspace
+#bindsym $mod+Shift+1 move container to workspace $ws1
+#bindsym $mod+Shift+2 move container to workspace $ws2
+#bindsym $mod+Shift+3 move container to workspace $ws3
+#bindsym $mod+Shift+4 move container to workspace $ws4
+#bindsym $mod+Shift+5 move container to workspace $ws5
+#bindsym $mod+Shift+6 move container to workspace $ws6
+#bindsym $mod+Shift+7 move container to workspace $ws7
+#bindsym $mod+Shift+8 move container to workspace $ws8
+#bindsym $mod+Shift+9 move container to workspace $ws9
+#bindsym $mod+Shift+0 move container to workspace $ws10
+
+#Move focused container to Workspace Tri-Monitors
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Ctrl+0 move container to workspace $ws5
+bindsym $mod+Shift+5 move container to workspace $ws6
+bindsym $mod+Shift+6 move container to workspace $ws7
+bindsym $mod+Shift+7 move container to workspace $ws8
+bindsym $mod+Shift+8 move container to workspace $ws9
+bindsym $mod+Shift+9 move container to workspace $ws10
+bindsym $mod+Shift+0 move container to workspace $ws11
 
 #+------+
 #|i3 Bar|
@@ -343,13 +402,15 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu  -nb '#003C3A' -sb '#00FFF7' -sf '#000000' -fn 'Terminus 11' -l 10"
 #bindsym $mod+d exec "rofi -combi-modi window,drun,run -show combi -modi combi -lines 10 -width 50 -padding 100"
 
+#i3bar replacement - Polybar
+#exec_always --no-startup-id /home/purplesmarts/.config/polybar/launch.sh
 
 bar {
       position top
       font pango:Terminus 10, FontAwesome 9
-      status_command i3blocks -c /root/.config/i3/i3blocks.conf
+      status_command i3blocks -c /home/purplesmarts/.config/i3/i3blocks.conf
       tray_output none
-      output HDMI-1
+      output VGA-2
       strip_workspace_numbers yes
 
       colors {
@@ -367,9 +428,9 @@ bar {
 bar {
       position top
       font pango:Terminus 10, FontAwesome 9
-      status_command i3blocks -c /root/.config/i3/i3blocks2.conf
-      #tray_output none
-      output VGA-1
+      status_command i3blocks -c /home/purplesmarts/.config/i3/i3blocks2.conf
+      tray_output none
+      output HDMI-2
       strip_workspace_numbers yes
 
       colors {
@@ -392,7 +453,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Sreen brightness controls
+# Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
@@ -406,13 +467,23 @@ bindsym XF86AudioPrev exec playerctl previous
 #|Startup|
 #+-------+
 exec_always --no-startup-id feh --bg-fill $papedir
-exec --no-startup-id xrandr --output VGA-1 --mode 1024x768 --pos 1366x0 --rotate normal --output DVI-I-1 --off --output HDMI-1 --primary --mode 1366x768 --pos 0x0 --rotate normal
+
+# Dual Monitors
+# exec --no-startup-id xrandr --output VGA-1 --mode 1024x768 --pos 1366x0 --rotate normal --output DVI-I-1 --off --output HDMI-1 --primary --mode 1366x768 --pos 0x0 --rotate normal
+
+# Tri-Monitors
+exec --no-startup-id xrandr --output VGA-2 --mode 1360x768 --pos 0x0 --rotate normal --output DVI-I-1 --off --output HDMI-2 --mode 1366x768 --pos 2384x0 --rotate normal --output HDMI-1-1 --off --output VGA-1-1 --primary --mode 1024x768 --pos 1360x0 --rotate normal
+
+# VGA-1-1 is the middle monitor.
+# VGA-2 is the left monitor.
+# HDMI-2 is the right monitor.
+
 exec --no-startup-id termite
 exec --no-startup-id compton -f
 exec --no-startup-id atom
 exec --no-startup-id firefox --class FirefoxD
 exec --no-startup-id corebird
-exec --no-startup-id wicd
+exec --no-startup-id sudo wicd
 exec --no-startup-id xfce4-panel -d
 exec --no-startup-id tor
 exec --no-startup-id killall -9 nexserv
